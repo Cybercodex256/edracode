@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body{background:transparent;
+    background-color:#AAB5C4;
+   }
+        .content {
+            margin: auto;
+            width: 70%;
+            height: auto;
+            border: 1px solid;
+            border-color: 1px solid gray;
+            border-fit: fixed;
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: transparent;
+            box-shadow: 8px 8px 10px;
+            border-radius: 10px;
+            position: relative;
+            padding: 8px;
+            text-align: center;
+            overflow-x: initial;
+            overflow-y: initial;
+            position: absolute;
+            -webkit-transform: translate(25px);
+        }
+        div.buttons input {
+            color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+            font-size: 30px;
+            border: none;
+            border-radius: 10px;
+            padding: 8px 8px;
+            text-decoration: none;
+            width: 50px;
+            /*background-color:rgba(0,0,0,0);*/
+            background-color: #290091;
+            text-align: center;
+            position: relative;
+            -webkit-transition-duration: 0.7s;
+            transition-duration: 0.4s;
+        }
+        input {
+            position:static;
+        }
+        div.buttons input:hover {
+            background-color: white;
+            color: blue;
+        }
+        #display {
+            font-size: 30px;
+            width: 220px;
+            height: 100px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+            color: blue;
+            border: none;
+            text-align: center;
+       
+         
+        }
+        a{
+        text-decoration:none;
+        background-color:green;
+        padding:5px 16px;
+        border-radius:5px;
+        }
+        a:hover{
+        color:red;}
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+<a href="index.html">Home</a>
+    <div class='content'>
+
+        <input type="text" id="display" value=''>
+        <br>
+        <br>
+        <div class="buttons">
+            <input type="button" value="/" onclick="display.value+='/'">
+            <input type="button" value="*" onclick="display.value+='*'">
+            <input type="button" value="DE" onclick="display.value=display.value.slice(0,-1)">
+            <input style="background-color:#AE0A00;" type="button" value="AC" onclick="display.value=display.value.slice(-1,-1)">
+            <br>
+            <input type="button" value="1" onclick="display.value+='1'">
+            <input type="button" value="2" onclick="display.value+='2'">
+            <input type="button" value="3" onclick="display.value+='3'">
+            <input type="button" class="oper" value="-" onclick="display.value+='-'">
+
+            <br>
+            <input type="button" value="4" onclick="display.value+='4'">
+            <input type="button" value="5" onclick="display.value+='5'">
+            <input type="button" value="6" onclick="display.value+='6'">
+            <input type="button" class="oper" value="+" onclick="display.value+='+'">
+
+            <br>
+            <input type="button" value="7" onclick="display.value+='7'">
+            <input type="button" value="8" onclick="display.value+='8'">
+            <input type="button" value="9" onclick="display.value+='9'">
+            <div style="display:inline;">
+                <input style="background-color:4FFF00;display;inline-block;" type="button" class="equals" value="=" onclick="display.value=eval(display.value)">
+            </div>
+            <br>
+            <input type="button" value="0" onclick="display.value+='0'">
+            <input type="button" value="." onclick="display.value+='.'">
+            <input type="button" value="e" onclick="display.value=Math.round(display.value)">
+            <input type="button" value="%" onclick="display.value=display.value/100">
+            <br>
+
+
+        </div>
+       
+<br>
+<br>
+<br>
+ 
+<script type="text/javascript">
+var hh=document.querySelector("#display");
+function min(){
+
+
+//this.style.fontSize="1px";
+
+console.log(hh)
+
+}
+hh.addEventListener("keyup",min());
+
+
+</script>
+   
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<html>
+<head>
+<script src="shownav.js"></script>
+
+
+<link rel="stylesheet"href="cssp/all.css"> 
+<meta name='viewport' content="width=device-width,intial-scale=1.0">
+<style>
+    body {
+        margin:0px;
+        background:gray;
+        font-family: Arial;
+        margin: 0;
+        
+        padding:0px;
+        padding-top:0px;
+        position: 
+    }
+    .header {
+    margin-bottom:0px;
+
+       position:fixed; 
+        
+        background: #00C2FF;
+        padding-bottom: 25px;
+        padding-top: 10px;
+        text-align: center;
+        width:100%;
+    }
+    .name,
+    .phoneNo {
+    position:relative;
+        margin-left: 15px;
+        padding: 10px 60px;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+        border: none;
+        margin-bottom: 15px;
+        transition: background 2s;
+        border-radius: 2px;
+    }
+    .name{
+    margin-top:0px;
+    margin-bottom:4px;}
+    .name:hover {
+       
+      /*  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+        text-align: center;*/
+        color: #fff;
+    }
+    .addcontact {color:white;
+        background-color: blue;
+        margin-left: 15px;
+        border: none;
+        border-radius: 2px;
+        padding: 10px 15px;
+    }
+    .Erase {color:#fff;
+        background: red;
+        border: none;
+        border-radius: 2px;
+        padding: 10px 30px;
+        margin-right:4px;
+        margin-left:7px;
+    }
+    .Erase:hover,
+    .addContact:hover {
+        color:white;
+    }
+
+    .Save {
+    margin:0px;
+    color:blue;
+        background:#fff;
+        border: 1px solid blue;
+        padding: 9px 60px;
+        border-radius: 2px;
+        transition: background 0.15s;
+    }
+    .Save:hover {
+        background:rgba(0,255,0,0.5);
+        color:#fff;
+    }
+    .inputs {
+    background:#fff;
+
+        border-top: 1px solid lightgray;
+        margin-top: 50px;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 99%;
+        margin-left: 2px;
+        padding: 50px 0px;
+        padding-top: 1px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+    }
+    .contactImage {
+        max-width: 170px;
+        height:170px;
+        margin: auto;
+        /* width: 95%;*/
+        margin-left: 5px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top:2px;
+        
+    }
+    .empty {
+    margin:20px;
+        margin-top: 80px;
+        border-radius: 150px;
+        border-top: 3px solid lightgreen;
+        margin-bottom: 0px;
+        margin-right:30px;
+        
+    }
+    .details {
+        color: #333;
+        margin-left: 9px;
+    }
+    .contactImage {
+        float: left;
+        margin-right:10px;
+    }
+    .Imgsrc {
+        float: center; 
+    }
+    #p{font-size:4vw;
+    color:#fff;
+    margin:0px;
+    margin-bottom:2px;}
+    #adjustable{
+    width:50px;
+    height:50px;
+    margin-left:15px;
+    border:1px solid gray;}
+    #icon {
+    float:left;
+    padding-left:10px;}
+    .navigator{
+    
+    display:none;
+    margin:0px;
+    margin-top:57px;
+    width:70%;
+    height:65%;
+    border-radius:5px;
+    ybox-shadow:10px 10px 10px rgba(0,0,0,0);
+    position:fixed;
+    over-flow:hidden;
+    background:black;}
+   .navigator ul{
+   list-style:none;
+   margin:0px;
+   padding:0px;
+   background:black;}
+   .navigator li{
+   margin:0px;
+   border-bottom:rgba(0,0,0,0.7);
+   width:;
+   padding:10px 0px;
+
+   text-align:center;
+   transition:background 0.50s;}
+   .navigator li:hover{
+   background:#fff;
+   
+   }
+   .navigator a{
+   color:gray;
+   text-decoration:none;
+   margin:0px;
+   text-align:center;
+   padding-right:50px;
+   width:520px;
+   }
+   i{
+   font-size:20px;
+   margin-right:40px;
+   color:#fff;}
+   #icon{
+   transition:transform 1s;}
+  #icon:hover{
+  color:white;
+  transform:rotate(180deg);} 
+  #close{
+  background:rgba(0,0,0,0.1);
+  border:none;
+  padding:0px 0px;
+  float:right;
+  }
+  #test{
+  display:none;
+  font-size:5px;
+  text-align:center;
+  font-family:Arial;
+  margin:5px;}
+  #cont{
+  border:1px solid #fff;
+  margin-right:10px;
+  margin-left:0px;
+  width:110px;
+  color:#333;
+  float:left;
+  border:none;
+  border-top:2px solid #fff;
+  }
+  #p{
+  color:gray;}
+  @media(min-width:540px){
+*{
+color:red;}
+.empty{
+margin-top:180px;}
+ .name,.phoneNo{
+padding:20px 170px;
+position:relative;}
+.contactImage{
+margin-left:30px;
+margin-right:10px;}
+#icon{
+margin-right:0px;}
+#icon0{
+margin-right:80px;}
+#icon1{
+margin-right:80px;}
+#icon2{
+margin-right:80px;}
+#icon3{
+margin-right:0px;}
+
+  }
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="header">
+        <i id="icon"class="fas fa-bars"onclick="showNavBar()"></i> 
+            <i id="icon0"class="fas fa-add"></i> 
+                <i id="icon1"class="fas fa-search"onclick="window.open('ad.html')"></i> 
+                <i id="icon2"class="fas fa-pen"></i>  
+                <i id="icon3"class="fas fa-save"onfocus="dataVerification()"onclick="addContacts(input.value,number.value)"></i>     
+        </div>
+        <div id="nav"class="navigator">
+        <ul>
+        <li><a href="#ddj">Create</a><button id="close"><i class="fas fa-close"></i></button></li>
+        <li><a href="ad.html">Contacts</a></li>
+        <li><a href="#dBm">Preferences</a></li>
+        <li><a href="#dBm">Background</a></li>
+        <li><a href="#dBm">Settings</a></li>
+        <li><a href="#dBm">About</a></li>
+        </ul></div>
+
+    </header>
+    <br>
+    <div>
+        <div class="inputs"ng-app="myApp"ng-controller="myCtrl">
+         <div id="io"class="imgAndSelect">    <img class="contactImage" id='img' src="default.jpg"></div>
+         <div id="cont"> <p id="p">Choose category:</p>  <select id='selector' class="Imgsrc" name="contactImg"ng-model="ip">
+            <option value="default.jpg">default</option>
+            <option value="family.jpg">family</option>
+            <option value="edwin.jpg" >friends</option>
+            <option value="business.jpg" >business</option>
+            <option value="lover.jpg">lover</option>
+            </select><br><img id="adjustable"src="default.jpg" ><br>
+            </div><button onclick="createOptions()">Apply</button>
+           
+            <div class="empty"></div>
+            <p class="details">Add details:</p>
+            <input class="name" type="text" id="input" placeholder='Name'required>
+            <input class="phoneNo" type="number" id="number" placeholder="phone number:">
+                <span id="test">All input fields  are required</span><br>
+
+           <!-- <button class="addContact" id="bt" onclick="addContacts(input.value,number.value)" onfocus="dataVerification()" >Create</button>-->
+            <button class="Erase" onclick="window.localStorage.clear()">Erase contacts</button>
+            <button  class="Save">save</button>
+
+       
+        </div>
+        <br>
+
+
+
+    </div>
+   
+    
+    <script>
+        function dataVerification()
+        {
+            var inputOne = document.getElementById("input");
+            var inputTwo=document.querySelector("#number");
+            
+            warning=document.querySelector("#test");
+            select=document.getElementById('selector');
+            category =select.options[select.selectedIndex].text;
+
+            
+
+            if (inputOne.value == ""||inputTwo.value=="")
+            {
+              warning.style.display="block";
+               warning.style.color="red";
+
+            }
+            else
+            {
+            warning.innerHTML="Contact created Successfully"+"<br>"+"Category:"+""+category;
+            records(input.value , number.value , selector.options[selector.selectedIndex].text)
+            
+            warning.style.color="red";
+            warning.style.display="block";
+            }
+            hide=function(){warning.style.display="none"};
+            inputOne.addEventListener("click",hide);
+            inputTwo.addEventListener("click",hide);
+
+        }
+
+ </script>
+ 
+ 
+ 
+ <script type="text/javascript">
+
+ function records(name,TelNum,image) {
+ 
+ var myObj={contactName:name
+ ,number:TelNum,img:image
+ }
+ console.log(myObj)
+ window.localStorage.setItem(name,JSON.stringify(myObj));
+ /*const newObj=window.localStorage.getItem("myObj");
+ var a=JSON.parse(newObj)
+ console.log(a.img);*/
+ 
+ 
+ //collection array
+ //var allContacts=[name];//-Must be created to initialize array before adding items
+ //window.localStorage.setItem("allContacts",JSON.stringify(allContacts));//-Ran once when starting the script for the first time
+ var contactHeaders =JSON.parse(window.localStorage.getItem("allContacts"));
+ contactHeaders.push(name);
+ window.localStorage.setItem("allContacts",JSON.stringify(contactHeaders));
+ console.log(JSON.parse(window.localStorage.getItem("allContacts")));
+ }
+ 
+ </script>
+    <script>
+        function outPut()
+        {
+            var a = document.getElementById("imp");
+            a.style.display = 'block';
+        }
+    </script>
+
+    <script>
+        function createOptions()
+        {
+            var select=document.getElementById('selector');
+            var img = document.getElementById('img');
+            var selectAndimg=document.getElementById('adjustable');
+          //  var patch =select.selectedOptions[0].value;
+            var patch =select.options[select.selectedIndex].text;
+            console.log(patch)
+            switch(patch)
+            {case "default":
+                  img.setAttribute("src",'default.jpg'); 
+                  break;
+            case 'family':
+               img.setAttribute("src",'family.jpg');
+                break;
+            case "friends":
+                img.setAttribute("src",'edwin.jpg');
+                break;
+            case "lover":
+               // selectAndimg.setAttribute("src","lover.jpg")
+                img.setAttribute("src",'lover.jpg');
+                break;
+            case "business":
+                img.setAttribute("src",'business.jpg');
+                break;
+          
+               
+            }
+        }
+        //createOptions();
+
+        
+    </script>
+  
+  
+ 
+    <script type="text/javascript">
+    function hideNavBar() {
+    
+    var btn=document.getElementById("close");
+    hide=function(){
+            nav=document.getElementById("nav");
+             nav.style.display="none";
+                   };
+    btn.addEventListener("click",hide)
+
+    // btn.setAttribute("onclick","showNavBar()");
+    }
+    hideNavBar()
+    </script>
+
+    <script type="text/javascript">
+    Array=window.localStorage.getItem("allContacts");
+    btn=document.querySelector(".Save");
+    if(Array != null){
+    alert("hello bitch");
+    btn.addEventListener("click",dataVerification);
+    }
+    else{
+    alert("fuck u")
+    var allContacts=[];
+    window.localStorage.setItem("allContacts",JSON.stringify(allContacts));
+    btn.addEventListener("click",dataVerification);
+    }
+    console.log(Array)
+    </script>
+    <script type="text/javascript">
+    
+    
+    const imageSelector = document.getElementById("selector");
+    const myImage = document.getElementById("adjustable");
+    
+    imageSelector.addEventListener("change", function() {
+    myImage.src = imageSelector.value || this.value;
+    });
+    </script>
+</body>
+
+</html>
