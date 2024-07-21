@@ -408,11 +408,11 @@ margin-right:0px;}
     Array=window.localStorage.getItem("allContacts");
     btn=document.querySelector(".Save");
     if(Array != null){
-    alert("hello bitch");
+    
     btn.addEventListener("click",dataVerification);
     }
     else{
-    alert("fuck u")
+    
     var allContacts=[];
     window.localStorage.setItem("allContacts",JSON.stringify(allContacts));
     btn.addEventListener("click",dataVerification);
