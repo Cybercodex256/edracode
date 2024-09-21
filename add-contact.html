@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="styles.css">
+    <title>Contacts App - Add Contact</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Contact</h1>
+        <form>
+            <label for="name">Name:</label>
+            <input class="name"type="text" id="name" required>
+            
+            <label for="phone">Phone:</label>
+            <input class="phoneNo"type="tel" id="phone" required>
+            
+            <label for="email">Email:</label>
+            <input class="email" type="email" id="email" required>
+           <br>      
+            <button class="save"onClick="make()"type="submit">Add Contact</button>
+        </form><br>
+        <a href="index.html">Back to Home</a>
+    </div>
+    
+    
+    
+    <script type="text/javascript">
+    alert( screen.availWidth)
+var inputName=document.querySelector(".name");
+
+
+var inputEmail=document.querySelector(".email");
+
+var inputPhone=document.querySelector(".phoneNo");
+
+var inputImage=document.querySelector("select");
+
+var save=document.querySelector(".save")
+
+
+
+class Contact {
+  constructor(name ,email,phone){
+  this.name=name;
+  this.email=email;
+  this.phone=phone;
+  
+      
+  }
+    
+}
+
+console.log("created blueprint for objects for contacts")
+function createContacts(name,email,phone){
+   alert(name) 
+var contact = new Contact(name,email,phone);
+/*console.log( contact.email)*/
+alert(contact.name)
+
+var newArray=[];
+
+if(window.localStorage.getItem("allContacts")             )
+
+{
+/*Get array of contact names  */
+var contactHeaders =JSON.parse( window.localStorage.getItem("allContacts") ); 
+
+/*Append a new name to the array*/
+contactHeaders.push(contact.name);
+ 
+  /*Save new array of contacts*/ window.localStorage.setItem("allContacts",JSON.stringify(contactHeaders))
+  
+  alert("Contact saved successfully")
+}
+
+else{
+  /*create new aray of contacts*/  
+window.localStorage.setItem("allContacts",JSON.stringify(newArray))
+
+var contactHeaders =JSON.parse( window.localStorage.getItem("allContacts") ); 
+contactHeaders.push(contact.name);
+
+window.localStorage.setItem("allContacts",JSON.stringify(contactHeaders))
+
+alert("Contact saved successfully");
+}
+
+}
+
+function make(){
+    
+    createContacts(inputName.value,inputEmail.value,inputPhone.value)
+}
+
+</script>
+
+
+
+    
+    
+</body>
+</html>
