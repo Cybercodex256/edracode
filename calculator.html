@@ -1,162 +1,108 @@
-<html>
-<head> <meta name="viewport" content="width=device-width, initial-scale=1"> <style>
-     body{
-background:transparent;
- background-color:#AAB5C4; 
- display:flex;
- }
- 
- body {
-  font-family: sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  min-height: 100vh;
-  background-color: #f0f0f0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Calculator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen font-sans p-4">
+    <!-- Main calculator container -->
+    <div class="calculator bg-gray-800 p-6 rounded-3xl shadow-2xl w-full max-w-sm">
+        <!-- Display screen -->
+        <input 
+            type="text" 
+            id="display" 
+            value='' 
+            readonly="readonly" 
+            class="w-full h-24 mb-6 rounded-2xl bg-gray-900 text-right text-4xl text-white px-4 border-none shadow-inner"
+        >
 
+        <!-- Buttons grid -->
+        <div class="buttons grid grid-cols-4 gap-4">
+            <!-- First row: operators and clear buttons -->
+            <button onclick="display.value+='/'" class="bg-blue-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-700 active:shadow-inner transition-all duration-200">
+                /
+            </button>
+            <button onclick="display.value+='*'" class="bg-blue-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-700 active:shadow-inner transition-all duration-200">
+                *
+            </button>
+            <button onclick="display.value=display.value.slice(0,-1)" class="bg-red-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-red-700 active:shadow-inner transition-all duration-200">
+                DE
+            </button>
+            <button onclick="display.value=''" class="bg-red-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-red-700 active:shadow-inner transition-all duration-200">
+                AC
+            </button>
+            
+            <!-- Second row: numbers and minus -->
+            <button onclick="display.value+='1'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                1
+            </button>
+            <button onclick="display.value+='2'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                2
+            </button>
+            <button onclick="display.value+='3'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                3
+            </button>
+            <button onclick="display.value+='-'" class="bg-blue-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-700 active:shadow-inner transition-all duration-200">
+                -
+            </button>
+            
+            <!-- Third row: numbers and plus -->
+            <button onclick="display.value+='4'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                4
+            </button>
+            <button onclick="display.value+='5'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                5
+            </button>
+            <button onclick="display.value+='6'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                6
+            </button>
+            <button onclick="display.value+='+'" class="bg-blue-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-700 active:shadow-inner transition-all duration-200">
+                +
+            </button>
 
-.content , .calculator{
-  background-color:rgba(0,0,0,0.9);/* #fff;*/
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 300px;
-  max-width: 90%; /* Adjust max-width for responsiveness */
-     border: 1px solid; 
-     border-color: 1px solid gray; border-fit: fixed; 
-  /*  background-color: rgba(0, 0, 0, 0.8); opacity: transparent;*/
-     box-shadow: 8px 8px 10px; border-radius: 10px
-}
- 
- 
-  /*.content { 
-  margin: auto;
-   width: 70%;
-    height: auto;
-     border: 1px solid; 
-     border-color: 1px solid gray; border-fit: fixed; 
-     background-color: rgba(0, 0, 0, 0.8); opacity: transparent; 
-     box-shadow: 8px 8px 10px; border-radius: 10px; 
-     position: relative;
-      padding: 8px; 
-      text-align: center;
-       overflow-x: initial;
-        overflow-y: initial; 
-        position: absolute;
-         -webkit-transform: translate(25px);
-          }    */     
-         
-        div.buttons input {
-           color:white;
-            box-shadow: 0px 16px 16px 0px rgba(0, 0, 0, 0.9), 20px 20px 20px 0 rgba(0, 0, 0, 0.9);
-             font-size:8vw;
-              border: none; 
-              border-radius: 10px; 
-              padding:5vw;
-               text-decoration: none;
-                
-                /*background-color:rgba(0,0,0,0);*/
-   background-color:rgba(0,0,0,0.8); /*#290091;*/ 
-   text-align: center;
-   position: relative;
- -webkit-transition-duration: 0.7s;  transition-duration: 0.4s;
-  } 
- input {
-  position:static;
-  } 
-          
-div.buttons input:hover { } 
- #display {
- word-wrap: break-word; 
- word-break:
-  break-all;
-  height: 80px;
-  font-size: 30px;
-  margin:auto;
- outline:none; 
-height: 100px;
-border-radius: 10px; 
-  background-color:rgba(0,0,0,0.9);
-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1); 
-    color: blue; 
-    border: none;
- 
-   width:80vw; 
-    }
-                            a{ 
-                            text-decoration:none;
-                             background-color:green; 
-  padding:5px 16px;
-        border-radius:5px; }
-         a:hover{
-          color:red;} 
-          
-          
-          .buttons{
-              display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;          }
-  .content{
-      background-color:black;/*rgba(0,0,0,0.9);*/
-  }
-          </style> 
-          </head>
-<body>
-    
-<div class='content'>
-<input type="" id="display" value=''readonly="readonly"> <br> <br> 
-<div class="buttons"> 
-    
-    
-    <input type="button" value="/" onclick="display.value+='/'">
-    
-     <input type="button" value="*" onclick="display.value+='*'"> 
-    
-    <input type="button" value="DE" onclick="display.value=display.value.slice(0,-1)"> 
-    
-    <input  type="button" value="AC" onclick="display.value=display.value.slice(-1,-1)"> 
-    
-    <input type="button" value="1" onclick="display.value+='1'">
-    
-     <input type="button" value="2" onclick="display.value+='2'">
-    
-     <input type="button" value="3" onclick="display.value+='3'"> 
-    
-    <input type="button" class="oper" value="-" onclick="display.value+='-'">
+            <!-- Fourth row: numbers and equals -->
+            <button onclick="display.value+='7'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                7
+            </button>
+            <button onclick="display.value+='8'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                8
+            </button>
+            <button onclick="display.value+='9'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                9
+            </button>
+            <button onclick="display.value=eval(display.value)" class="bg-green-600 text-white text-3xl font-bold py-5 rounded-2xl row-span-2 shadow-lg hover:bg-green-700 active:shadow-inner transition-all duration-200">
+                =
+            </button>
 
-<input type="button" value="4" onclick="display.value+='4'"> 
-
-<input type="button" value="5" onclick="display.value+='5'">
-
- <input type="button" value="6" onclick="display.value+='6'">
-
-<input type="button" class="oper" value="+" onclick="display.value+='+'">
-
-
-<input type="button" value="7" onclick="display.value+='7'"> 
-
-<input type="button" value="8" onclick="display.value+='8'">
-
- <input type="button" value="9" onclick="display.value+='9'"> 
-
-    
-    <input  type="button" class="equals" value="=" onclick="display.value=eval(display.value)">  
-    
-    
-    <input type="button" value="0" onclick="display.value+='0'"> 
-    
-    <input type="button" value="." 
-    onclick="display.value+='.'"> 
-    
-<input type="button"class="ans" name="0"value="ans" 
-    onclick="display.value=this.name">                 
-    
-    <input type="button" value="%" onclick="display.value=display.value/100"> 
-
- 
-
-</div>
+            <!-- Fifth row: zero, decimal, and percent -->
+            <button onclick="display.value+='0'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl col-span-2 shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                0
+            </button>
+            <button onclick="display.value+='.'" class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                .
+            </button>
+            <!-- The original 'ans' button with a blank onclick function to avoid errors -->
+            <!-- <button class="bg-gray-700 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-gray-600 active:shadow-inner transition-all duration-200">
+                ans
+            </button> -->
+            <button onclick="display.value=display.value/100" class="bg-blue-600 text-white text-3xl font-bold py-5 rounded-2xl shadow-lg hover:bg-blue-700 active:shadow-inner transition-all duration-200">
+                %
+            </button>
+        </div>
+    </div>
 </body>
 </html>
